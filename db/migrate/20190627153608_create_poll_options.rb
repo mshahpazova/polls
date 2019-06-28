@@ -3,7 +3,6 @@ class CreatePollOptions < ActiveRecord::Migration[5.2]
     create_table :poll_options do |t|
       t.string :description
       t.references :poll, foreign_key: true
-
       t.timestamps
     end
   end
