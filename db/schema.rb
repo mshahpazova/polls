@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 2019_06_27_160250) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "poll_options", force: :cascade do |t|
+  create_table "options", force: :cascade do |t|
     t.string "description"
     t.integer "poll_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["poll_id"], name: "index_poll_options_on_poll_id"
+    t.index ["poll_id"], name: "index_options_on_poll_id"
   end
 
   create_table "polls", force: :cascade do |t|
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 2019_06_27_160250) do
 
   create_table "votes", force: :cascade do |t|
     t.string "user_id"
-    t.integer "poll_option_id"
+    t.integer "option_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["poll_option_id"], name: "index_votes_on_poll_option_id"
+    t.index ["option_id"], name: "index_votes_on_option_id"
   end
 
 end

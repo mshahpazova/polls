@@ -1,5 +1,6 @@
-<h3>Create a Poll</h3>
-<%= form_with model: @poll do |form| %>
+<h3>Create an option</h3>
+<%= form_with model: @option, url: [@poll, @option] do |form| %>
   <%= form.text_field :description, placeholder: "description" %>
+
   <%= form.submit %>
 <% end %>

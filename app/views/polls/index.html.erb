@@ -1,2 +1,17 @@
-<h1>Polls#index</h1>
-<p>Find me in app/views/polls/index.html.erb</p>
+<h3>All Polls</h3>
+<% if admin_signed_in? %>
+  <%= link_to 'Create new poll', new_poll_path %>
+<% end %>
+<ul>
+  <% @polls.each do |poll| %>
+    <li>
+      <%= link_to poll.description, poll_path(poll) %>
+      <% if admin_signed_in? %>
+        <%= link_to 'Delete', poll,
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+

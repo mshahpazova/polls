@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :polls
-  get 'home/index'
+  get '/', to: redirect('/polls')
   devise_for :admins
-  root to: "home#index"
+  resources :polls do
+    member do
+      post :vote
+    end
+    resources :options, only: [:create, :destroy, :new]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
