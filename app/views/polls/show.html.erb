@@ -10,7 +10,7 @@
   <% @poll.options.each do |option| %>
     <%= f.label :option, option.description, value: option.id.to_s  %>
     <%= f.radio_button :option, option.id.to_s %>
-    <%= @decorator.votes(option) %>
+    <%= "voted: #{@decorator.number_of_votes(option)} times, #{@decorator.votes_percentage(option)}%" %>
     <% if admin_signed_in? %>
       <%= link_to 'Delete', [@poll, option],
                   method: :delete,
