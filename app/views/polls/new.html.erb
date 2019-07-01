@@ -1,0 +1,5 @@
+<h3>Create a Poll</h3>
+<%= form_with model: @poll do |form| %>
+  <%= form.text_field :description, placeholder: "description" %>
+  <%= form.submit %>
+<% end %>
