@@ -4,6 +4,7 @@ class PollsController < ApplicationController
   end
 
   def create
+    byebug
     @poll = Poll.create(poll_params)
     redirect_to polls_path
   end
@@ -15,6 +16,19 @@ class PollsController < ApplicationController
 
   def new
     @poll = Poll.new
+  end
+
+  def edit
+    @poll = Poll.find(params[:id])
+  end
+
+  def update
+    @poll = Poll.find(params[:id])
+    if @poll.update(poll_params)
+      redirect_to @poll
+    else
+      render 'edit'
+    end
   end
 
   def destroy

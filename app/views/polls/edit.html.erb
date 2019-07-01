@@ -1,2 +1,15 @@
-<h1>Polls#edit</h1>
-<p>Find me in app/views/polls/edit.html.erb</p>
+<h1>Edit poll</h1>
+
+<%= form_with(model: @poll, local: true) do |form| %>
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', polls_path %>
