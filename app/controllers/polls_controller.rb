@@ -36,7 +36,7 @@ class PollsController < ApplicationController
   end
 
   def vote
-    if already_voted?(voter: params[:voter_name], poll_id: params[:id])
+    if CanVoteService.already_voted?(voter: params[:voter_name], poll_id: params[:id])
       flash[:notice] = 'You have already voted'
     else
       Vote.create(user_id: params[:voter_name], option_id: params[:option])
@@ -48,9 +48,5 @@ class PollsController < ApplicationController
 
   def poll_params
     params.require(:poll).permit(:description, :poll_options)
-  end
-
-  def already_voted?(voter:, poll_id:)
-    Poll.find(poll_id).votes.where(user_id: voter).size != 0
   end
 end
