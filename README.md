@@ -1,29 +1,23 @@
 
 # README
 
-This is rails application for creating, editing and deleting polls with options (possible after logging as an admin) Right now admin functionality is accessible on every page but could be placed on different screen with hardcoded username and password in the database. Users can vote, each user user can vote only once with the name he/she has provided.
+This is an exercise Rails project for learnig purposes
+
+### Task requirements
+
+The app should allow creating, editing and deleting polls with options. It does not support user creation and login with the exception of a single admin user. Users can vote for a poll option only by filling in their name and they can cast a single vote for each poll.
 
 ### Starting the application
-* Run bundle install to install the dependencies
 
-* Database creation: rails db:create
-* Seed data rake db:seed
+* Install the gems:
+```bundle install```
 
-* to run the server use:
-rails s
+* Create and fill the database:
+```rails db:reset```
 
-* to run the tests use:
-rspec spec
+* Start the server:
+```rails s```
 
-### Required Versions
-
-* Ruby version: 2.6.0
-* Rails version: 5.2.2
-
-* Gems that are used:
-  * bootstrap
-  * jquery-rails
-  * devise
-  * rspec
-  * factory-bot
-  * rspec-rails
+### Making modifications
+* Run the tests with:
+```rspec spec```
