@@ -4,7 +4,6 @@ class PollsController < ApplicationController
   end
 
   def create
-    byebug
     @poll = Poll.create(poll_params)
     redirect_to polls_path
   end
