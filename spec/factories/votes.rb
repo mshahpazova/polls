@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :vote do
-    user_id { 'maria' }
+    user_id { '' }
     option
   end
 end
