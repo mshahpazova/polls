@@ -1,6 +1,6 @@
 <h1>Edit poll</h1>
 
-<%= form_with(model: @poll, local: true) do |form| %>
+<%= form_with(model: @poll, local: true, :html => { :class => "form-horizontal" }) do |form| %>
   <p>
     <%= form.label :description %><br>
     <%= form.text_area :description %>
